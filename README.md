@@ -40,13 +40,3 @@ Then use it to query Put.io
 	Putio::Transfer.list
 	Putio::Transfer.get(1234)
 	Putio::Transfer.add("http://some_url.com")
-
-
-
-## Contributing
-
-1. Fork it ( https://github.com/[my-github-username]/putio-ruby/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
