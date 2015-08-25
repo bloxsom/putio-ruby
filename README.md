@@ -29,14 +29,14 @@ Or install it yourself as:
 First configure the gem to use your oauth token (See [instructions](https://put.io/v2/docs/gettingstarted.html#sign-up) for generating a token)
 
 	Putio.configure :oauth_token => YOUR_OAUTH_TOKEN
-	
+
 Then use it to query Put.io
 
 	Putio::File.list
-	Putio::File.get(1234)
-	Putio::File.get(1234).delete
-	Putio::File.get(1234).download_url
-	
+	file = Putio::File.get(1234)
+	file.download_url
+	file.delete
+
 	Putio::Transfer.list
 	Putio::Transfer.get(1234)
 	Putio::Transfer.add("http://some_url.com")
