@@ -1,4 +1,4 @@
-require "putio/version"
+require "putio-ruby/version"
 
 require "multi_json"
 require "faraday"
@@ -6,16 +6,16 @@ require "active_support"
 require "active_support/inflector"
 require "active_support/core_ext/hash"
 
-require "putio/middleware/parse"
-require "putio/middleware/oauth_token"
+require "putio-ruby/middleware/parse"
+require "putio-ruby/middleware/oauth_token"
 
-require "putio/api/client"
-require "putio/api/object"
+require "putio-ruby/api/client"
+require "putio-ruby/api/object"
 
-require "putio/file"
-require "putio/transfer"
+require "putio-ruby/file"
+require "putio-ruby/transfer"
 
-require "putio/errors"
+require "putio-ruby/errors"
 
 module Putio
   def self.configure(args)
