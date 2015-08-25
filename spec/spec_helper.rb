@@ -3,7 +3,7 @@ CodeClimate::TestReporter.start
 require 'bundler/setup'
 Bundler.setup
 
-require 'putio'
+require 'putio-ruby'
 require 'pry'
 
 require 'support/faraday_helper'
