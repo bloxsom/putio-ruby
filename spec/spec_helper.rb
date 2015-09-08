@@ -15,3 +15,5 @@ end
 Putio.configure do |config|
   config.oauth_token = 'sometoken'
 end
+
+WebMock.disable_net_connect!(:allow => "codeclimate.com")
