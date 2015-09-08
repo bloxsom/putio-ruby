@@ -1,5 +1,3 @@
-# putio-ruby
-
 [![Gem Version](https://badge.fury.io/rb/putio-ruby.svg)](http://badge.fury.io/rb/putio-ruby)
 [![Build Status](https://travis-ci.org/bloxsom/putio-ruby.svg?branch=master)](https://travis-ci.org/bloxsom/putio-ruby)
 [![Code Climate](https://codeclimate.com/github/bloxsom/putio-ruby/badges/gpa.svg)](https://codeclimate.com/github/bloxsom/putio-ruby)
