@@ -1,0 +1,64 @@
+{
+  "files": [
+    {
+      "content_type": "application/x-directory",
+      "crc32": null,
+      "created_at": "2015-08-04T07:53:34",
+      "first_accessed_at": null,
+      "icon": "https://put.io/images/file_types/folder.png",
+      "id": 303960610,
+      "is_mp4_available": false,
+      "is_shared": false,
+      "name": "Some Directory",
+      "opensubtitles_hash": null,
+      "parent_id": 0,
+      "screenshot": null,
+      "size": 3856142971
+    },
+    {
+      "content_type": "application/x-directory",
+      "crc32": null,
+      "created_at": "2015-08-21T04:33:44",
+      "first_accessed_at": null,
+      "icon": "https://put.io/images/file_types/folder.png",
+      "id": 306438301,
+      "is_mp4_available": false,
+      "is_shared": false,
+      "name": "Another Directory",
+      "opensubtitles_hash": null,
+      "parent_id": 0,
+      "screenshot": null,
+      "size": 854228778
+    },
+    {
+      "content_type": "application/pdf",
+      "crc32": "101b869f",
+      "created_at": "2015-05-29T17:03:09",
+      "first_accessed_at": "2015-05-29T17:03:16",
+      "icon": "https://put.io/images/file_types/pdf.png",
+      "id": 294287245,
+      "is_mp4_available": false,
+      "is_shared": false,
+      "name": "Some PDF.pdf",
+      "opensubtitles_hash": null,
+      "parent_id": 0,
+      "screenshot": null,
+      "size": 1556228
+    }
+  ],
+  "parent": {
+    "content_type": "application/x-directory",
+    "crc32": null,
+    "created_at": "2012-06-30T07:52:03",
+    "icon": "https://put.io/images/file_types/folder.png",
+    "id": 0,
+    "is_mp4_available": false,
+    "is_shared": false,
+    "name": "Your Files",
+    "opensubtitles_hash": null,
+    "parent_id": null,
+    "screenshot": null,
+    "size": 25063849558
+  },
+  "status": "OK"
+}

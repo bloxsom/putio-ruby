@@ -2,12 +2,14 @@ require "putio-ruby/version"
 
 require "multi_json"
 require "faraday"
-require "active_support"
-require "active_support/inflector"
-require "active_support/core_ext/hash"
+require "faraday_middleware"
+require "virtus"
 
-require "putio-ruby/middleware/parse"
+require "putio-ruby/configuration"
+
+require "putio-ruby/middleware/parse_root"
 require "putio-ruby/middleware/oauth_token"
+require "putio-ruby/middleware/error_handler"
 
 require "putio-ruby/api/client"
 require "putio-ruby/api/object"
@@ -15,15 +17,23 @@ require "putio-ruby/api/object"
 require "putio-ruby/file"
 require "putio-ruby/transfer"
 
-require "putio-ruby/errors"
+require "putio-ruby/error"
 
 module Putio
-  def self.configure(args)
-    @oauth_token = args[:oauth_token]
+  class << self
+    attr_writer :configuration
   end
 
-  def self.oauth_token
-    @oauth_token
+  def self.configuration
+    @configuration ||= Configuration.new
+  end
+
+  def self.reset
+    @configuration = Configuration.new
+  end
+
+  def self.configure
+    yield(configuration)
   end
 end
 

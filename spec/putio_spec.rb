@@ -6,11 +6,13 @@ describe Putio do
   end
 
   describe '#configure' do
-    subject { Putio.configure(:oauth_token => 'sometoken') }
+    subject do
+      Putio.configure { |config| config.oauth_token = 'sometoken' }
+    end
 
     it 'sets the oauth_token' do
       subject
-      expect(Putio.oauth_token).to eq('sometoken')
+      expect(Putio.configuration.oauth_token).to eq('sometoken')
     end
   end
 end

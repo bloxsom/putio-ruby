@@ -1,113 +1,55 @@
 require 'spec_helper'
 
 describe Putio::Transfer do
-  before do
-    Putio.configure :oauth_token => 'some_token'
-    Putio::Transfer.instance_variable_set(:@client, nil)
-  end
-
   describe '#list' do
     subject { Putio::Transfer.list }
 
-    let(:json) do
-      '{ "some": "response" }'
-    end
-    let(:parsed_json) do
-      { :some => "response" }
+    before do
+      stub_request(:get, "https://api.put.io/v2/transfers/list?oauth_token=sometoken").
+        to_return(:status => 200, :body => fixture("transfer_list.json"), :headers => {'content-type' => 'application/json'})
     end
 
-    context 'when the request succeeds' do
-      before do
-        stub_request(Putio::Transfer.client) do |stub|
-          stub.get "/v2/transfers/list" do
-            [200, {}, json]
-          end
-        end
-      end
-
-      it 'parses the collection' do
-        expect(Putio::Transfer).to receive(:parse_collection).with(parsed_json)
-        subject
-      end
-
+    it 'returns transfers' do
+      expect(subject.first.is_a?(Putio::Transfer)).to be_truthy
     end
 
-    context 'when the request fails' do
-      before do
-        stub_request(Putio::Transfer.client) do |stub|
-          stub.get "/v2/transfers/list" do
-            [500, {}, json]
-          end
-        end
-      end
-
-      it 'does not parse the collection' do
-        expect(Putio::Transfer).to_not receive(:parse_collection)
-        subject
-      end
-
-      it 'returns nil' do
-        expect(subject).to be_nil
-      end
+    it 'returns a collection' do
+      expect(subject.is_a?(Array)).to be_truthy
     end
   end
 
-  describe '#get' do
-    subject { Putio::Transfer.get(1234) }
+  describe '#transfer' do
+    subject { Putio::Transfer.transfer(12345) }
 
-    let(:json) do
-      '{ "some": "response" }'
-    end
-    let(:parsed_json) do
-      { :some => "response" }
+    before do
+      stub_request(:get, "https://api.put.io/v2/transfers/12345?oauth_token=sometoken").
+        to_return(:status => 200, :body => fixture("transfer_get.json"), :headers => {'content-type' => 'application/json'})
     end
 
-    context 'when the request succeeds' do
-      before do
-        stub_request(Putio::Transfer.client) do |stub|
-          stub.get "/v2/transfers/1234" do
-            [200, {}, json]
-          end
-        end
-      end
-
-      it 'parses the object' do
-        expect(Putio::Transfer).to receive(:parse_object).with(parsed_json)
-        subject
-      end
-    end
-
-    context 'when the request fails' do
-      before do
-        stub_request(Putio::Transfer.client) do |stub|
-          stub.get "/v2/transfers/1234" do
-            [500, {}, json]
-          end
-        end
-      end
-
-      it 'does not parse the object' do
-        expect(Putio::Transfer).to_not receive(:parse_object)
-        subject
-      end
-
-      it 'returns nil' do
-        expect(subject).to be_nil
-      end
+    it 'returns a transfer' do
+      expect(subject.is_a?(Putio::Transfer)).to be_truthy
     end
   end
 
   describe '#add' do
+    subject { Putio::Transfer.add("someurl") }
     before do
-      stub_request(Putio::Transfer.client) do |stub|
-        stub.post "/v2/transfers/add", :url => 'someurl' do
-          [200, {}, '']
-        end
-      end
+      stub_request(:post, "https://api.put.io/v2/transfers/add?oauth_token=sometoken").
+        with(:body => {"url"=>"someurl"}).
+        to_return(:status => 200, :body => fixture("transfer_get.json"), :headers => {'content-type' => 'application/json'})
     end
 
-    it 'adds the transfer' do
-      expect{subject}.to_not raise_error
+    it 'returns a transfer' do
+      expect(subject.is_a?(Putio::Transfer)).to be_truthy
+    end
+  end
+
+  describe '#fetch' do
+    subject { Putio::Transfer.new(:id => 12345).fetch }
+
+    it 'fetches the transfer' do
+      expect(Putio::Transfer).to receive(:transfer).with(12345)
+      subject
     end
   end
 end

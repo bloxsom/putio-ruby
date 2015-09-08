@@ -5,9 +5,13 @@ Bundler.setup
 
 require 'putio-ruby'
 require 'pry'
-
-require 'support/faraday_helper'
+require 'webmock/rspec'
+require 'helpers'
 
 RSpec.configure do |config|
-  config.include FaradayHelper
+  config.include Helpers
+end
+
+Putio.configure do |config|
+  config.oauth_token = 'sometoken'
 end

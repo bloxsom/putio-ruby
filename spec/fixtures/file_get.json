@@ -1,0 +1,18 @@
+{
+  "file": {
+    "content_type": "application/x-directory",
+    "crc32": null,
+    "created_at": "2015-09-02T02:07:49",
+    "first_accessed_at": null,
+    "icon": "https://put.io/images/file_types/folder.png",
+    "id": 12345,
+    "is_mp4_available": false,
+    "is_shared": false,
+    "name": "Some.File",
+    "opensubtitles_hash": null,
+    "parent_id": 0,
+    "screenshot": null,
+    "size": 914911088
+  },
+  "status": "OK"
+}

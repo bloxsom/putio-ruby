@@ -12,7 +12,7 @@ putio-ruby is a simple gem for communicating with the Put.io REST API. Currently
 
 Add the gem to your Gemfile:
 
-```
+```ruby
 gem 'putio-ruby'
 ```
 
@@ -28,15 +28,21 @@ Or install it yourself as:
 
 First configure the gem to use your oauth token (See [instructions](https://put.io/v2/docs/gettingstarted.html#sign-up) for generating a token)
 
-	Putio.configure :oauth_token => YOUR_OAUTH_TOKEN
+```ruby
+Putio.configure do |config|
+  oauth_token = "YOUR_OAUTH_TOKEN"
+end
+```
 
 Then use it to query Put.io
 
-	Putio::File.list
-	file = Putio::File.get(1234)
-	file.download_url
-	file.delete
+```ruby
+Putio::File.list
+file = Putio::File.get(1234)
+file.download_url
+file.delete
 
-	Putio::Transfer.list
-	Putio::Transfer.get(1234)
-	Putio::Transfer.add("http://some_url.com")
+Putio::Transfer.list
+Putio::Transfer.get(1234)
+Putio::Transfer.add("http://some_url.com")
+```
