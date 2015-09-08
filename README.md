@@ -35,12 +35,12 @@ end
 Then use it to query Put.io
 
 ```ruby
-Putio::File.list
-file = Putio::File.get(1234)
-file.download_url
-file.delete
+Putio::File.list              # => [#<Putio::File:0x007fe1b3a84d40, ...]
+file = Putio::File.get(1234)  # => #<Putio::File:0x007fe373b07558
+file.download_url             # => "https://dlw3.put.io/download/12345..."
+file.delete                   # => true
 
-Putio::Transfer.list
-Putio::Transfer.get(1234)
-Putio::Transfer.add("http://some_url.com")
+Putio::Transfer.list                        # => [#<Putio::Transfer:0x007fe373a80580, ...]
+Putio::Transfer.get(1234)                   # => #<Putio::Transfer:0x007fe373a9afc0
+Putio::Transfer.add("http://some_url.com")  # => #<Putio::Transfer:0x007fe373aa2c70
 ```

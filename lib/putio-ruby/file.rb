@@ -29,6 +29,7 @@ module Putio
 
     def delete
       client.post "files/delete", :file_ids => id
+      true
     end
   end
 end
