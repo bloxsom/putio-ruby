@@ -28,7 +28,7 @@ First configure the gem to use your oauth token (See [instructions](https://put.
 
 ```ruby
 Putio.configure do |config|
-  oauth_token = "YOUR_OAUTH_TOKEN"
+  config.oauth_token = "YOUR_OAUTH_TOKEN"
 end
 ```
 
