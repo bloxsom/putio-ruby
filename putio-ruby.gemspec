@@ -25,8 +25,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "webmock", "~> 1.0"
   spec.add_development_dependency "codeclimate-test-reporter", "~> 0.4"
 
-  spec.add_runtime_dependency "faraday", "~> 0.9"
-  spec.add_runtime_dependency "faraday_middleware", "~> 0.10"
+  spec.add_runtime_dependency "faraday", "~> 0.11"
+  spec.add_runtime_dependency "faraday_middleware", "~> 0.11"
+  spec.add_runtime_dependency "typhoeus"
   spec.add_runtime_dependency "multi_json", "~> 1.7"
   spec.add_runtime_dependency "virtus", "~> 1.0"
 end
