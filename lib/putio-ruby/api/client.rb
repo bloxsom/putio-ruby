@@ -13,7 +13,7 @@ module Putio
           connection.use FaradayMiddleware::ParseJson, :content_type => /\bjson$/
 
           # Adapter
-          connection.adapter :typhoeus
+          connection.adapter :excon
         end
       end
     end

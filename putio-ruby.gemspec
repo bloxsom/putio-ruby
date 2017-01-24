@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency "faraday", "~> 0.11"
   spec.add_runtime_dependency "faraday_middleware", "~> 0.11"
-  spec.add_runtime_dependency "typhoeus"
+  spec.add_runtime_dependency "excon"
   spec.add_runtime_dependency "multi_json", "~> 1.7"
   spec.add_runtime_dependency "virtus", "~> 1.0"
 end
