@@ -23,6 +23,11 @@ module Putio
       self.new client.get("files/#{id}").body
     end
 
+    def self.search(query)
+      res = client.get("files/search", query: query)
+      res.body.map { |f| self.new f }
+    end
+
     def download_url
       client.get("files/#{id}/download").env.response_headers["location"]
     end

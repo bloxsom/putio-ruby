@@ -18,6 +18,23 @@ describe Putio::File do
     end
   end
 
+  describe '#search' do
+    subject { Putio::File.search("type: video") }
+
+    before do
+      stub_request(:get, "https://api.put.io/v2/files/search?oauth_token=sometoken&query=type:%20video").
+        to_return(:status => 200, :body => fixture("file_list.json"), :headers => {'content-type' => 'application/json'})
+    end
+
+    it 'returns files' do
+      expect(subject.first.is_a?(Putio::File)).to be_truthy
+    end
+
+    it 'returns a collection' do
+      expect(subject.is_a?(Array)).to be_truthy
+    end
+  end
+
   describe '#file' do
     subject { Putio::File.file(12345) }
 
