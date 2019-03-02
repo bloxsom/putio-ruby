@@ -36,5 +36,10 @@ module Putio
       client.post "files/delete", :file_ids => id
       true
     end
+
+    def rename(name)
+      client.post "files/rename", :file_id => id, :name => name
+      true
+    end
   end
 end

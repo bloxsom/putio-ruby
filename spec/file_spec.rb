@@ -74,4 +74,18 @@ describe Putio::File do
       expect{subject}.to_not raise_error
     end
   end
+
+  describe 'rename' do
+    subject { Putio::File.new(:id => 12345).rename("New name") }
+
+    before do
+      stub_request(:post, "https://api.put.io/v2/files/rename?oauth_token=sometoken").
+        with(:body => {"file_id"=>"12345", "name"=>"New name"}).
+        to_return(:status => 200, :body => '{"status": "OK"}', :headers => {'content-type' => 'application/json'})
+    end
+
+    it 'does not raise an error' do
+      expect{subject}.to_not raise_error
+    end
+  end
 end
